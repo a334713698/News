@@ -46,6 +46,9 @@ class DJBannerView: BaseView {
             let imageView: UIImageView = UIImageView.init(frame: CGRect.init(x: CGFloat(i) * SCREEN_WIDTH, y: 0, width: SCREEN_WIDTH, height: DJBannerViewHeight))
             self.scrollerView.addSubview(imageView)
             imageView.kf.setImage(with: URL(string: v))
+            imageView.kf.setImage(with: URL(string: v), placeholder: Image("placeholder"), options: nil, progressBlock: nil) { (r) in
+                
+            }
         }
         
         let pageControl = UIPageControl.init()

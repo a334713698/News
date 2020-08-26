@@ -8,18 +8,26 @@
 
 import UIKit
 
-let HomeSegmentViewHeight: CGFloat = adaptWidth(45)
+//let HomeSegmentViewHeight: CGFloat = adaptWidth(45)
+let HomeSegmentViewHeight: CGFloat = adaptWidth(40)
 
+@objc protocol HomeSegmentViewDelegate: NSObjectProtocol {
+    func itemDidSelected(_ index: Int)
+    
+}
 
 class HomeSegmentView: BaseView, UICollectionViewDataSource, UICollectionViewDelegate {
     
-//    var dataSource = [String]()
-    var dataSource = ["科技", "教育", "文化", "经济", "政治", "体育", "科技", "教育", "文化", "经济", "政治", "体育"]
+    weak var delegate: HomeSegmentViewDelegate?
+
+    var dataSource = ["头条","社会", "国内", "国际", "娱乐", "体育", "军事", "科技", "财经", "时尚"]
+    var dataSourcePY = ["top","shehui", "guonei", "guoji", "yule", "tiyu", "junshi", "keji", "caijing", "shishang"]
     var selectIndex = 0
-    
+    open var selectType: String?
+
     private lazy var collectionView: UICollectionView = {
         var flowLayout = UICollectionViewFlowLayout.init()
-        flowLayout.itemSize = CGSize.init(width: HomeSegmentViewHeight, height: HomeSegmentViewHeight)
+        flowLayout.itemSize = CGSize.init(width: adaptWidth(50), height: HomeSegmentViewHeight)
         flowLayout.minimumInteritemSpacing = 0;
         flowLayout.scrollDirection = .horizontal;
 
@@ -33,7 +41,8 @@ class HomeSegmentView: BaseView, UICollectionViewDataSource, UICollectionViewDel
         self.addSubview(collectionView)
         collectionView.snp.makeConstraints { (make) in
             make.left.top.bottom.equalTo(0)
-            make.right.equalTo(-(HomeSegmentViewHeight + 1))
+//            make.right.equalTo(-(HomeSegmentViewHeight + 1))
+            make.right.equalTo(0)
         }
         return collectionView
     }()
@@ -65,6 +74,7 @@ class HomeSegmentView: BaseView, UICollectionViewDataSource, UICollectionViewDel
         super.init(frame: frame)
         initUI()
         self.backgroundColor = RGB(232.0, 238.0, 241.0)
+        selectType = dataSourcePY[selectIndex]
     }
 
     required init?(coder: NSCoder) {
@@ -72,8 +82,8 @@ class HomeSegmentView: BaseView, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func initUI(){
-        self.moreButton.isHidden = false
-        self.line.isHidden = false
+//        self.moreButton.isHidden = false
+//        self.line.isHidden = false
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
@@ -95,6 +105,9 @@ class HomeSegmentView: BaseView, UICollectionViewDataSource, UICollectionViewDel
         self.selectIndex = indexPath.item
         self.collectionView.reloadData()
         self.collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
+        if self.delegate != nil && self.delegate!.responds(to: #selector(delegate?.itemDidSelected(_:))){
+            self.delegate?.itemDidSelected(indexPath.item)
+        }
     }
 }
 

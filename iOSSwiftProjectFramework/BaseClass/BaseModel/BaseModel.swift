@@ -6,7 +6,11 @@
 //
 
 import UIKit
+import SwiftyJSON
+import HandyJSON
 
-class BaseModel: NSObject {
-
+class BaseModel: HandyJSON {
+    required init() {
+        
+    }
 }

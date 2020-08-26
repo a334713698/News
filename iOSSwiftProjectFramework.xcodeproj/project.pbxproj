@@ -26,6 +26,8 @@
 		713CF8FC24DD269E00E25C83 /* GGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713CF8F824DD269D00E25C83 /* GGNotification.swift */; };
 		713CF8FE24DD2D3500E25C83 /* FeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713CF8FD24DD2D3500E25C83 /* FeatureViewController.swift */; };
 		713CF90024DD3BD500E25C83 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713CF8FF24DD3BD500E25C83 /* OneViewController.swift */; };
+		71AB912824F632650041E5D9 /* WebAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB912724F632650041E5D9 /* WebAPI.swift */; };
+		71AB912C24F63C310041E5D9 /* HomeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB912B24F63C310041E5D9 /* HomeListModel.swift */; };
 		71B7E04624F4D5F600DA3908 /* DJBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7E04524F4D5F600DA3908 /* DJBannerView.swift */; };
 		71B7E04924F4E0FF00DA3908 /* DJNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7E04824F4E0FF00DA3908 /* DJNewsTableViewCell.swift */; };
 		71CDDF8F24F3B79400366B6D /* DJHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CDDF8E24F3B79400366B6D /* DJHomeViewController.swift */; };
@@ -59,6 +61,8 @@
 		713CF8F824DD269D00E25C83 /* GGNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGNotification.swift; sourceTree = "<group>"; };
 		713CF8FD24DD2D3500E25C83 /* FeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureViewController.swift; sourceTree = "<group>"; };
 		713CF8FF24DD3BD500E25C83 /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
+		71AB912724F632650041E5D9 /* WebAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAPI.swift; sourceTree = "<group>"; };
+		71AB912B24F63C310041E5D9 /* HomeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListModel.swift; sourceTree = "<group>"; };
 		71B7E04524F4D5F600DA3908 /* DJBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJBannerView.swift; sourceTree = "<group>"; };
 		71B7E04824F4E0FF00DA3908 /* DJNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJNewsTableViewCell.swift; sourceTree = "<group>"; };
 		71CDDF8E24F3B79400366B6D /* DJHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJHomeViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				713CF8E724DD265100E25C83 /* BaseNetRequest.swift */,
+				71AB912724F632650041E5D9 /* WebAPI.swift */,
 			);
 			path = BaseNetRequest;
 			sourceTree = "<group>";
@@ -297,6 +302,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		71AB912A24F63B060041E5D9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				71AB912B24F63C310041E5D9 /* HomeListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		71B7E04424F4D5D100DA3908 /* Banner */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +331,7 @@
 			children = (
 				71CDDF8D24F3B78200366B6D /* VC */,
 				71CDDF9424F3B93E00366B6D /* View */,
+				71AB912A24F63B060041E5D9 /* Model */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -491,7 +505,9 @@
 				71B7E04624F4D5F600DA3908 /* DJBannerView.swift in Sources */,
 				713CF8C124DD250A00E25C83 /* AppDelegate.swift in Sources */,
 				71CDDF9D24F3BF6F00366B6D /* GGHeader.swift in Sources */,
+				71AB912C24F63C310041E5D9 /* HomeListModel.swift in Sources */,
 				713CF8FA24DD269E00E25C83 /* GGEnum.swift in Sources */,
+				71AB912824F632650041E5D9 /* WebAPI.swift in Sources */,
 				713CF8EF24DD265100E25C83 /* BaseView.swift in Sources */,
 				713CF8F924DD269D00E25C83 /* GGGlobalVariables.swift in Sources */,
 				713CF8FC24DD269E00E25C83 /* GGNotification.swift in Sources */,
