@@ -63,6 +63,7 @@
 		713CF8FF24DD3BD500E25C83 /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		71AB912724F632650041E5D9 /* WebAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAPI.swift; sourceTree = "<group>"; };
 		71AB912B24F63C310041E5D9 /* HomeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListModel.swift; sourceTree = "<group>"; };
+		71ADB83824F77B8700B14258 /* iOSSwiftProjectFramework-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSSwiftProjectFramework-Bridging-Header.h"; sourceTree = "<group>"; };
 		71B7E04524F4D5F600DA3908 /* DJBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJBannerView.swift; sourceTree = "<group>"; };
 		71B7E04824F4E0FF00DA3908 /* DJNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJNewsTableViewCell.swift; sourceTree = "<group>"; };
 		71CDDF8E24F3B79400366B6D /* DJHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJHomeViewController.swift; sourceTree = "<group>"; };
@@ -298,6 +299,7 @@
 				713CF8C624DD250A00E25C83 /* Main.storyboard */,
 				713CF8CB24DD250C00E25C83 /* LaunchScreen.storyboard */,
 				713CF8CE24DD250C00E25C83 /* Info.plist */,
+				71ADB83824F77B8700B14258 /* iOSSwiftProjectFramework-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -412,6 +414,7 @@
 				TargetAttributes = {
 					713CF8BC24DD250A00E25C83 = {
 						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
 					};
 				};
 			};
@@ -661,6 +664,7 @@
 			baseConfigurationReference = 29E66051508C8E9AB47F873A /* Pods-iOSSwiftProjectFramework.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				INFOPLIST_FILE = iOSSwiftProjectFramework/Info.plist;
@@ -670,6 +674,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gg266.News;
 				PRODUCT_NAME = News;
+				SWIFT_OBJC_BRIDGING_HEADER = "iOSSwiftProjectFramework/iOSSwiftProjectFramework-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -680,6 +686,7 @@
 			baseConfigurationReference = A4685E9972EB37D0292A33EF /* Pods-iOSSwiftProjectFramework.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				INFOPLIST_FILE = iOSSwiftProjectFramework/Info.plist;
@@ -689,6 +696,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gg266.News;
 				PRODUCT_NAME = News;
+				SWIFT_OBJC_BRIDGING_HEADER = "iOSSwiftProjectFramework/iOSSwiftProjectFramework-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

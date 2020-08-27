@@ -12,6 +12,7 @@ pod 'SwiftyJSON'   #JSON解析框架
 pod 'Kingfisher'   #图片加载、缓存框架
 pod 'HandyJSON'	   #JSON解析框架
 pod 'Moya' 	   #网络请求管理类
+pod 'MJRefresh'    #下拉刷新
 
 
   # Pods for iOSSwiftProjectFramework

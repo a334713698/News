@@ -10,11 +10,11 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import HandyJSON
-
+import SafariServices
 
 class DJHomeViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, HomeSegmentViewDelegate {
     
-    var newsList: [HomeListModel]?
+    var newsList = [HomeListModel]()
     
     private lazy var bannerView: DJBannerView = {
         let bannerView = DJBannerView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: DJBannerViewHeight))
@@ -35,6 +35,16 @@ class DJHomeViewController: BaseViewController, UITableViewDataSource, UITableVi
         let tableView = UITableView()
         tableView.separatorInset = UIEdgeInsets.zero
         self.view.addSubview(tableView)
+        tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
+            [weak self] in
+            self!.newsList.removeAll()
+            self!.responseData()
+        })
+        tableView.mj_footer = MJRefreshBackNormalFooter.init(refreshingBlock: {
+            [weak self] in
+            self!.responseData()
+        })
+
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(UIEdgeInsets.init(top: HomeSegmentViewHeight, left: 0, bottom: 0, right: 0))
         }
@@ -54,50 +64,54 @@ class DJHomeViewController: BaseViewController, UITableViewDataSource, UITableVi
         self.tableView.dataSource = self
         self.tableView.tableHeaderView = self.bannerView
         
-        responseData()
-
+        
+        self.tableView.mj_header?.beginRefreshing()
         
     }
     
     // MARK --
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.newsList?.count ?? 0
+        return self.newsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model: HomeListModel = self.newsList![indexPath.row]
+        let model: HomeListModel = self.newsList[indexPath.row]
         let cell = DJNewsTableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: nil)
         cell.iconImageView.kf.setImage(with: URL(string: model.thumbnail_pic_s02), placeholder: Image("placeholder"), options: nil, progressBlock: nil) { (r) in }
         cell.titleLab.text = model.title
         cell.sourceLab.text = model.author_name
-//        cell.detailLab.text = String(model.date[model.date.index(model.date.startIndex, offsetBy: 5)..<model.date.endIndex])
         cell.detailLab.text = model.date
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let vc = SFSafariViewController.init(url: URL.init(string: "https://baijiahao.baidu.com/s?id=1675976303415932974&wfr=spider&for=pc")!)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return DJNewsTableViewCellHeight
     }
-       
+    
     
     // MARK -- HomeSegmentViewDelegate
     func itemDidSelected(_ index: Int) {
         self.segView.selectType = self.segView.dataSourcePY[index]
-        responseData()
+        self.newsList.removeAll()
+        self.tableView.mj_header?.beginRefreshing()
     }
     
     
     // MARK -- NetRequest
     func responseData() {
         BaseNetRequest.NetWorkRequest(.getNewsList(key: "", type: self.segView.selectType!), completion: { (JSOnDictory) -> (Void) in
+            self.tableView.mj_header?.endRefreshing()
+            self.tableView.mj_footer?.endRefreshing()
             let dataArr =  JSOnDictory["result"]["data"].arrayObject
             if let arr = JSONDeserializer<HomeListModel>.deserializeModelArrayFrom(array: dataArr) {
                 let t = arr.compactMap({$0})
-                self.newsList = t
+                self.newsList += t
                 self.tableView.reloadData()
             }
         }, failed: { (reason) -> (Void) in

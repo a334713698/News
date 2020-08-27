@@ -4,6 +4,7 @@ PODS:
   - Kingfisher (5.14.1):
     - Kingfisher/Core (= 5.14.1)
   - Kingfisher/Core (5.14.1)
+  - MJRefresh (3.5.0)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - Alamofire
   - HandyJSON
   - Kingfisher
+  - MJRefresh
   - Moya
   - SnapKit
   - SwiftyJSON
@@ -24,6 +26,7 @@ SPEC REPOS:
     - Alamofire
     - HandyJSON
     - Kingfisher
+    - MJRefresh
     - Moya
     - SnapKit
     - SwiftyJSON
@@ -32,10 +35,11 @@ SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: ca96bba426d671e3f4d870f164993741e78b8c4a
+PODFILE CHECKSUM: 22de1349659ed98d1df3a2bb0ec17bba1bfa7fcd
 
 COCOAPODS: 1.9.3
