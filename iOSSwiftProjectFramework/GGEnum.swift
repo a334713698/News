@@ -12,3 +12,16 @@ import Foundation
 enum NSNetRequestState: Int {
     case NetRequestSuccess = 0
 }
+
+enum DJMeType {
+    case NightMode
+    case OffLineDownload
+    case NewsPush
+    case RecentlyRead
+    case Feedback
+    case Setting
+    case Collection
+    case Comment
+    case CardPackage
+    case IntegralMall
+}

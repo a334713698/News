@@ -86,6 +86,12 @@ let CurrentSystemVersion = UIDevice.current.systemVersion
 // 获取当前语言
 let CurrentLanguage: String? = NSLocale.preferredLanguages.first
 
+// 版本判断
+let IOS10_OR_LATER = (UIDevice.current.systemVersion.compare("10.0", options: String.CompareOptions.numeric, range: nil, locale: nil) != ComparisonResult.orderedAscending)
+let IOS11_OR_LATER = (UIDevice.current.systemVersion.compare("11.0", options: String.CompareOptions.numeric, range: nil, locale: nil) != ComparisonResult.orderedAscending)
+let IOS12_OR_LATER = (UIDevice.current.systemVersion.compare("12.0", options: String.CompareOptions.numeric, range: nil, locale: nil) != ComparisonResult.orderedAscending)
+let IOS13_OR_LATER = (UIDevice.current.systemVersion.compare("13.0", options: String.CompareOptions.numeric, range: nil, locale: nil) != ComparisonResult.orderedAscending)
+
 
 // 判断是真机还是模拟器
 #if TARGET_OS_IPHONE
