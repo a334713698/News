@@ -27,6 +27,8 @@
 		713CF8FE24DD2D3500E25C83 /* FeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713CF8FD24DD2D3500E25C83 /* FeatureViewController.swift */; };
 		713CF90024DD3BD500E25C83 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713CF8FF24DD3BD500E25C83 /* OneViewController.swift */; };
 		714A0D0C24FF47B300C3A73A /* DJMeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A0D0B24FF47B300C3A73A /* DJMeHeaderView.swift */; };
+		71518E972500DC02003627AB /* DJMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71518E962500DC02003627AB /* DJMediaViewController.swift */; };
+		71518E9A2500EB03003627AB /* DJVideoCateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71518E992500EB03003627AB /* DJVideoCateView.swift */; };
 		71AB912824F632650041E5D9 /* WebAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB912724F632650041E5D9 /* WebAPI.swift */; };
 		71AB912C24F63C310041E5D9 /* HomeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB912B24F63C310041E5D9 /* HomeListModel.swift */; };
 		71B7E04624F4D5F600DA3908 /* DJBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7E04524F4D5F600DA3908 /* DJBannerView.swift */; };
@@ -63,6 +65,8 @@
 		713CF8FD24DD2D3500E25C83 /* FeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureViewController.swift; sourceTree = "<group>"; };
 		713CF8FF24DD3BD500E25C83 /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		714A0D0B24FF47B300C3A73A /* DJMeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJMeHeaderView.swift; sourceTree = "<group>"; };
+		71518E962500DC02003627AB /* DJMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJMediaViewController.swift; sourceTree = "<group>"; };
+		71518E992500EB03003627AB /* DJVideoCateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJVideoCateView.swift; sourceTree = "<group>"; };
 		71AB912724F632650041E5D9 /* WebAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAPI.swift; sourceTree = "<group>"; };
 		71AB912B24F63C310041E5D9 /* HomeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListModel.swift; sourceTree = "<group>"; };
 		71ADB83824F77B8700B14258 /* iOSSwiftProjectFramework-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSSwiftProjectFramework-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				71CDDF8C24F3B77900366B6D /* Home */,
+				71518E942500DBCB003627AB /* Media */,
 				71CDDF9024F3B8F000366B6D /* Me */,
 				713CF8D524DD263F00E25C83 /* Feature */,
 			);
@@ -310,6 +315,31 @@
 			isa = PBXGroup;
 			children = (
 				714A0D0B24FF47B300C3A73A /* DJMeHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71518E942500DBCB003627AB /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				71518E952500DBD3003627AB /* VC */,
+				71518E982500EAE4003627AB /* View */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		71518E952500DBD3003627AB /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				71518E962500DC02003627AB /* DJMediaViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		71518E982500EAE4003627AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				71518E992500EB03003627AB /* DJVideoCateView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -511,6 +541,7 @@
 				713CF8F224DD265100E25C83 /* BaseModel.swift in Sources */,
 				713CF8E024DD264B00E25C83 /* UIButton+ImageTitleSpacing.swift in Sources */,
 				713CF8FE24DD2D3500E25C83 /* FeatureViewController.swift in Sources */,
+				71518E9A2500EB03003627AB /* DJVideoCateView.swift in Sources */,
 				71CDDF9224F3B90100366B6D /* DJMeViewController.swift in Sources */,
 				713CF8F324DD265100E25C83 /* BaseTabBarController.swift in Sources */,
 				713CF8C524DD250A00E25C83 /* ViewController.swift in Sources */,
@@ -530,6 +561,7 @@
 				71B7E04924F4E0FF00DA3908 /* DJNewsTableViewCell.swift in Sources */,
 				713CF8EE24DD265100E25C83 /* BaseNavigationController.swift in Sources */,
 				714A0D0C24FF47B300C3A73A /* DJMeHeaderView.swift in Sources */,
+				71518E972500DC02003627AB /* DJMediaViewController.swift in Sources */,
 				71CDDF8F24F3B79400366B6D /* DJHomeViewController.swift in Sources */,
 				713CF8C324DD250A00E25C83 /* SceneDelegate.swift in Sources */,
 			);
@@ -680,6 +712,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				INFOPLIST_FILE = iOSSwiftProjectFramework/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -702,6 +735,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HHW6X6T397;
 				INFOPLIST_FILE = iOSSwiftProjectFramework/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
