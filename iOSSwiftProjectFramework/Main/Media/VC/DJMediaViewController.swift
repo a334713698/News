@@ -10,6 +10,19 @@ import UIKit
 
 class DJMediaViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
+    let dataArr = [
+        "http://pic1.win4000.com/wallpaper/e/5382fbbe525fd.jpg",
+        "http://pic1.win4000.com/wallpaper/e/5382fbb765eac.jpg",
+        "http://pic1.win4000.com/wallpaper/e/5382fbc538bf0.jpg",
+        "http://pic1.win4000.com/wallpaper/e/5382fbda9a261.jpg",
+        "http://pic1.win4000.com/wallpaper/e/5382fbe16105f.jpg",
+        "http://pic1.win4000.com/wallpaper/e/5382fbe85ba62.jpg",
+        "http://pic1.win4000.com/wallpaper/e/5382fbef23c11.jpg",
+        "http://pic1.win4000.com/wallpaper/e/5382fbf6cc39c.jpg",
+        "http://pic1.win4000.com/wallpaper/e/5382fbfc9871f.jpg",
+        "http://pic1.win4000.com/wallpaper/e/5382fc10796f2.jpg"
+    ]
+    
     // prama MARK - Property
     private lazy var tableView: UITableView = {
         let tableView = UITableView.init(frame: CGRect.zero, style: UITableView.Style.grouped)
@@ -23,6 +36,7 @@ class DJMediaViewController: BaseViewController, UITableViewDelegate, UITableVie
             tableView.estimatedSectionFooterHeight = 0.01
         }
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(DJMediaTableViewCell.self, forCellReuseIdentifier: "mediaCell")
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(0)
         }
@@ -63,16 +77,17 @@ class DJMediaViewController: BaseViewController, UITableViewDelegate, UITableVie
 
     // prama MARK - UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.dataArr.count * 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
+        let imgStr = self.dataArr[indexPath.section % self.dataArr.count]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mediaCell", for: indexPath) as! DJMediaTableViewCell
+        cell.contImageView.kf.setImage(with: URL(string: imgStr), placeholder: Image("placeholder"), options: nil, progressBlock: nil) { (r) in }
         return cell
     }
     
@@ -82,7 +97,7 @@ class DJMediaViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return 150
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -105,6 +120,7 @@ class DJMediaViewController: BaseViewController, UITableViewDelegate, UITableVie
         print("导航栏-直播")
         self.lifeButton.isSelected = true
         self.videoButton.isSelected = false
+        self.videoCateView.isHidden = true
     }
 
 

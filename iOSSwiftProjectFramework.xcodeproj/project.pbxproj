@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7108C7D12514AD0C007D86D9 /* DJMediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7108C7D02514AD0C007D86D9 /* DJMediaTableViewCell.swift */; };
 		713CF8C124DD250A00E25C83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713CF8C024DD250A00E25C83 /* AppDelegate.swift */; };
 		713CF8C324DD250A00E25C83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713CF8C224DD250A00E25C83 /* SceneDelegate.swift */; };
 		713CF8C524DD250A00E25C83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713CF8C424DD250A00E25C83 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		2451895F7B88950D00063474 /* Pods_iOSSwiftProjectFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSSwiftProjectFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29E66051508C8E9AB47F873A /* Pods-iOSSwiftProjectFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftProjectFramework.debug.xcconfig"; path = "Target Support Files/Pods-iOSSwiftProjectFramework/Pods-iOSSwiftProjectFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		7108C7D02514AD0C007D86D9 /* DJMediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJMediaTableViewCell.swift; sourceTree = "<group>"; };
 		713CF8BD24DD250A00E25C83 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		713CF8C024DD250A00E25C83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		713CF8C224DD250A00E25C83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				71518E992500EB03003627AB /* DJVideoCateView.swift */,
+				7108C7D02514AD0C007D86D9 /* DJMediaTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				713CF8FE24DD2D3500E25C83 /* FeatureViewController.swift in Sources */,
 				71518E9A2500EB03003627AB /* DJVideoCateView.swift in Sources */,
 				71CDDF9224F3B90100366B6D /* DJMeViewController.swift in Sources */,
+				7108C7D12514AD0C007D86D9 /* DJMediaTableViewCell.swift in Sources */,
 				713CF8F324DD265100E25C83 /* BaseTabBarController.swift in Sources */,
 				713CF8C524DD250A00E25C83 /* ViewController.swift in Sources */,
 				713CF8FB24DD269E00E25C83 /* GGConst.swift in Sources */,
