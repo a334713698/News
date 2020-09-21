@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DJMediaViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class DJMediaViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, DJVideoCateViewDelegate {
 
     let dataArr = [
         "http://pic1.win4000.com/wallpaper/e/5382fbbe525fd.jpg",
@@ -23,7 +23,15 @@ class DJMediaViewController: BaseViewController, UITableViewDelegate, UITableVie
         "http://pic1.win4000.com/wallpaper/e/5382fc10796f2.jpg"
     ]
     
+    let cateArr = ["TOP100","咨询","娱乐","体育","本地","汽车","科技","财经","健康","美食","大直播","在现场","星在线","纵横谈","星座系"]
+    
+    
     // prama MARK - Property
+    private lazy var bannerView: DJMediaBannerView = {
+        let bannerView = DJMediaBannerView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: DJMediaBannerViewHeight))
+        return bannerView
+    }()
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView.init(frame: CGRect.zero, style: UITableView.Style.grouped)
         self.view.addSubview(tableView)
@@ -40,27 +48,31 @@ class DJMediaViewController: BaseViewController, UITableViewDelegate, UITableVie
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(0)
         }
+        tableView.mj_header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(loadNewData))
+        tableView.mj_footer = MJRefreshBackNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMoreData))
         return tableView
     }()
     
     private lazy var videoCateView: DJVideoCateView = {
-        let videoCateView = DJVideoCateView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: 75))
+        let videoCateView = DJVideoCateView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: (CateItemHeight + CateItemMargin) * CGFloat(ceilf(Float(self.cateArr.count) / 5.0)) + CateItemMargin))
+        videoCateView.delegate = self
+        videoCateView.cateArr = self.cateArr
+        videoCateView.collectionView.reloadData()
         self.view.addSubview(videoCateView)
         return videoCateView
     }()
     
-    lazy var videoButton: UIButton = {
+    lazy var referButton: UIButton = {
         var btn = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: NavigationBarIconSize, height: NavigationBarIconSize))
-        self.setupNavButton(btn, "  视频  ")
-        btn.isSelected = true
-        btn.addTarget(self, action: #selector(videoButtonPressed), for: UIControl.Event.touchUpInside)
+        self.setupNavButton(btn, "  推荐  ")
+        btn.addTarget(self, action: #selector(referButtonPressed), for: UIControl.Event.touchUpInside)
         return btn
     }()
     
-    lazy var lifeButton: UIButton = {
+    lazy var cateButton: UIButton = {
         var btn = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: NavigationBarIconSize, height: NavigationBarIconSize))
-        self.setupNavButton(btn, "  直播  ")
-        btn.addTarget(self, action: #selector(lifeButtonPressed), for: UIControl.Event.touchUpInside)
+        self.setupNavButton(btn, "  分类  ")
+        btn.addTarget(self, action: #selector(cateButtonPressed), for: UIControl.Event.touchUpInside)
         return btn
     }()
     
@@ -101,7 +113,19 @@ class DJMediaViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return DJLiveTrailerViewHeight
+        }
         return 10
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 {
+            let view = DJLiveTrailerView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: DJLiveTrailerViewHeight))
+            
+            return view
+        }
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -109,25 +133,48 @@ class DJMediaViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     // prama MARK - SEL
-    @objc func videoButtonPressed() {
-        print("导航栏-视频")
-        self.videoButton.isSelected = true
-        self.lifeButton.isSelected = false
-        self.videoCateView.isHidden = !self.videoCateView.isHidden
+    @objc func referButtonPressed() {
+        print("导航栏-推荐")
+        self.cateButton.isSelected = false
+        self.cateButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        self.referButton.isSelected = true
+        self.referButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 21)
+        self.videoCateView.isHidden = true
+        self.tableView.tableHeaderView = self.bannerView
     }
     
-    @objc func lifeButtonPressed() {
-        print("导航栏-直播")
-        self.lifeButton.isSelected = true
-        self.videoButton.isSelected = false
-        self.videoCateView.isHidden = true
+    @objc func cateButtonPressed() {
+        print("导航栏-分类")
+        if self.cateButton.isSelected == true {
+            self.videoCateView.isHidden = !self.videoCateView.isHidden
+        }
+        self.referButton.isSelected = false
+        self.referButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        self.cateButton.isSelected = true
+        self.cateButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 21)
+        self.tableView.tableHeaderView = nil
+    }
+    
+    @objc func loadNewData() {
+        self.tableView.mj_header?.endRefreshing()
+    }
+    
+    @objc func loadMoreData() {
+        self.tableView.mj_footer?.endRefreshingWithNoMoreData()
     }
 
+    // MARK -- DJVideoCateViewDelegate
+    func itemDidSelected(_ index: Int) {
+        self.videoCateView.isHidden = true
+        self.videoCateView.selectedIndex = index
+        self.tableView.mj_header?.beginRefreshing()
+    }
 
     // prama MARK - Method
     func setupNav() {
-        self.title = ""
-        self.navigationItem.setLeftBarButtonItems([UIBarButtonItem.init(customView: self.videoButton), UIBarButtonItem.init(customView: self.lifeButton)], animated: true)
+        self.navigationItem.titleView = UIView.init()
+        self.navigationItem.setLeftBarButtonItems([UIBarButtonItem.init(customView: self.referButton), UIBarButtonItem.init(customView: self.cateButton)], animated: true)
+        self.referButtonPressed()
     }
     
     func setupNavButton(_ btn: UIButton, _ title: String) {
@@ -137,4 +184,6 @@ class DJMediaViewController: BaseViewController, UITableViewDelegate, UITableVie
         btn.setTitleColor(RGB(245, 180, 180), for: UIControl.State.normal)
         btn.setTitleColor(.white, for: UIControl.State.selected)
     }
+    
+
 }

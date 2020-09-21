@@ -8,17 +8,34 @@
 
 import UIKit
 
+let CateItemHeight = adaptWidth(30)
+let CateItemMargin: CGFloat = adaptWidth(8.0)
+
+@objc protocol DJVideoCateViewDelegate: NSObjectProtocol {
+    func itemDidSelected(_ index: Int)
+    
+}
+
+
 class DJVideoCateView: BaseView, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    weak var delegate: DJVideoCateViewDelegate?
 
+    var cateArr: [String]?    
 
-    private lazy var collectionView: UICollectionView = {
+    var selectedIndex: Int = 0
+    
+    lazy var collectionView: UICollectionView = {
         var flowLayout = UICollectionViewFlowLayout.init()
-        let width = adaptWidth(60), height = adaptWidth(30)
+        flowLayout.minimumLineSpacing = CateItemMargin
+        flowLayout.minimumInteritemSpacing = CateItemMargin
+        flowLayout.sectionInset = UIEdgeInsets.init(top: CateItemMargin, left: CateItemMargin, bottom: CateItemMargin, right: CateItemMargin)
+        let width = adaptWidth(60), height = CateItemHeight
         flowLayout.itemSize = CGSize.init(width: width, height: height)
         let collectionView = UICollectionView.init(frame: self.bounds, collectionViewLayout:flowLayout)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .yellow
+        collectionView.backgroundColor = .white
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "HomeCell")
         self.addSubview(collectionView)
         return collectionView
@@ -37,15 +54,16 @@ class DJVideoCateView: BaseView, UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        if let cates = self.cateArr {
+            return cates.count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCell", for: indexPath)
-        cell.backgroundColor = .red
-        cell.layer.cornerRadius = 8
+        cell.layer.cornerRadius = CateItemHeight/2.0
         cell.layer.masksToBounds = true
-        cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 1
 
         var label: UILabel!
@@ -55,19 +73,32 @@ class DJVideoCateView: BaseView, UICollectionViewDelegate, UICollectionViewDataS
         }else{
             label = UILabel.init()
             cell.contentView.addSubview(label)
-            label.textColor = .white
+            label.font = UIFont.systemFont(ofSize: 15)
             label.snp.makeConstraints { (make) in
                 make.center.equalTo(cell.contentView.center)
             }
         }
         
-        label.text = "\(indexPath.row)"
+        if self.selectedIndex == indexPath.row {
+            cell.backgroundColor = .red
+            cell.layer.borderColor = UIColor.red.cgColor
+            label.textColor = .white
+        }else{
+            cell.backgroundColor = .white
+            cell.layer.borderColor = UIColor.black.cgColor
+            label.textColor = .black
+        }
+        
+        label.text = "\(self.cateArr![indexPath.row])"
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        
+        self.selectedIndex = indexPath.row
+        self.collectionView.reloadData()
+        if self.delegate != nil && self.delegate!.responds(to: #selector(delegate?.itemDidSelected(_:))){
+            self.delegate?.itemDidSelected(indexPath.item)
+        }
     }
 
 
