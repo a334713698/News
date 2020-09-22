@@ -30,6 +30,7 @@
 		713CF8FC24DD269E00E25C83 /* GGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713CF8F824DD269D00E25C83 /* GGNotification.swift */; };
 		713CF8FE24DD2D3500E25C83 /* FeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713CF8FD24DD2D3500E25C83 /* FeatureViewController.swift */; };
 		713CF90024DD3BD500E25C83 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713CF8FF24DD3BD500E25C83 /* OneViewController.swift */; };
+		7144491F2519F5E8004943CE /* DJFindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144491E2519F5E8004943CE /* DJFindViewController.swift */; };
 		714A0D0C24FF47B300C3A73A /* DJMeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A0D0B24FF47B300C3A73A /* DJMeHeaderView.swift */; };
 		71518E972500DC02003627AB /* DJMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71518E962500DC02003627AB /* DJMediaViewController.swift */; };
 		71518E9A2500EB03003627AB /* DJVideoCateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71518E992500EB03003627AB /* DJVideoCateView.swift */; };
@@ -72,6 +73,7 @@
 		713CF8F824DD269D00E25C83 /* GGNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGNotification.swift; sourceTree = "<group>"; };
 		713CF8FD24DD2D3500E25C83 /* FeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureViewController.swift; sourceTree = "<group>"; };
 		713CF8FF24DD3BD500E25C83 /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
+		7144491E2519F5E8004943CE /* DJFindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJFindViewController.swift; sourceTree = "<group>"; };
 		714A0D0B24FF47B300C3A73A /* DJMeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJMeHeaderView.swift; sourceTree = "<group>"; };
 		71518E962500DC02003627AB /* DJMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJMediaViewController.swift; sourceTree = "<group>"; };
 		71518E992500EB03003627AB /* DJVideoCateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJVideoCateView.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				71CDDF8C24F3B77900366B6D /* Home */,
+				714449162519F57F004943CE /* Find */,
 				71518E942500DBCB003627AB /* Media */,
 				71CDDF9024F3B8F000366B6D /* Me */,
 				713CF8D524DD263F00E25C83 /* Feature */,
@@ -318,6 +321,30 @@
 				71ADB83824F77B8700B14258 /* iOSSwiftProjectFramework-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		714449162519F57F004943CE /* Find */ = {
+			isa = PBXGroup;
+			children = (
+				714449172519F58A004943CE /* VC */,
+				714449182519F58E004943CE /* View */,
+			);
+			path = Find;
+			sourceTree = "<group>";
+		};
+		714449172519F58A004943CE /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				7144491E2519F5E8004943CE /* DJFindViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		714449182519F58E004943CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		714A0D0A24FF3FBF00C3A73A /* View */ = {
@@ -552,6 +579,7 @@
 				713CF90024DD3BD500E25C83 /* OneViewController.swift in Sources */,
 				713CF8F224DD265100E25C83 /* BaseModel.swift in Sources */,
 				713CF8E024DD264B00E25C83 /* UIButton+ImageTitleSpacing.swift in Sources */,
+				7144491F2519F5E8004943CE /* DJFindViewController.swift in Sources */,
 				713CF8FE24DD2D3500E25C83 /* FeatureViewController.swift in Sources */,
 				71518E9A2500EB03003627AB /* DJVideoCateView.swift in Sources */,
 				71CDDF9224F3B90100366B6D /* DJMeViewController.swift in Sources */,

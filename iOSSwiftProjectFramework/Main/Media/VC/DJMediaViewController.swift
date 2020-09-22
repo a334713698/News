@@ -113,14 +113,14 @@ class DJMediaViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
+        if section == 0 && self.referButton.isSelected {
             return DJLiveTrailerViewHeight
         }
         return 10
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 {
+        if section == 0 && self.referButton.isSelected {
             let view = DJLiveTrailerView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: DJLiveTrailerViewHeight))
             
             return view
@@ -141,6 +141,7 @@ class DJMediaViewController: BaseViewController, UITableViewDelegate, UITableVie
         self.referButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 21)
         self.videoCateView.isHidden = true
         self.tableView.tableHeaderView = self.bannerView
+        self.tableView.reloadData()
     }
     
     @objc func cateButtonPressed() {
@@ -153,6 +154,7 @@ class DJMediaViewController: BaseViewController, UITableViewDelegate, UITableVie
         self.cateButton.isSelected = true
         self.cateButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 21)
         self.tableView.tableHeaderView = nil
+        self.tableView.reloadData()
     }
     
     @objc func loadNewData() {

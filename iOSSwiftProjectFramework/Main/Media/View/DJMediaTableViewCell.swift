@@ -26,7 +26,7 @@ class DJMediaTableViewCell: UITableViewCell {
         self.addSubview(liveIcon)
         liveIcon.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         liveIcon.backgroundColor = .red
-        liveIcon.setTitle(" 直播", for: UIControl.State.normal)
+        liveIcon.setTitle("直播", for: UIControl.State.normal)
         liveIcon.setImage(Image("icon_live"), for: UIControl.State.normal)
         liveIcon.contentHorizontalAlignment = .center
         liveIcon.snp.makeConstraints { (make) in
@@ -36,6 +36,8 @@ class DJMediaTableViewCell: UITableViewCell {
         }
         liveIcon.layer.cornerRadius = 5
         liveIcon.layer.masksToBounds = true
+        liveIcon.sizeToFit()
+        liveIcon.layoutButton(edgeInsetsStyle: GGButtonEdgeInsetsStyle.Right, imageTitleSpace: 3)        
         return liveIcon
     }()
     

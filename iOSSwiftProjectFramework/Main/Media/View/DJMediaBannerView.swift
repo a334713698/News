@@ -73,10 +73,13 @@ class DJMediaBannerView: BaseView {
         self.titleBtn.snp.makeConstraints { (make) in
             make.left.equalTo(12)
             make.bottom.equalTo(-12)
-            make.width.equalTo(46)
+            make.width.equalTo(50)
+            make.height.equalTo(20)
         }
         self.titleBtn.layer.cornerRadius = 3
         self.titleBtn.layer.masksToBounds = true
+        self.titleBtn.sizeToFit()
+        self.titleBtn.layoutButton(edgeInsetsStyle: .Right, imageTitleSpace: 0)
 
         
         self.titleLab = UILabel()
@@ -87,8 +90,6 @@ class DJMediaBannerView: BaseView {
             make.left.equalTo(self.titleBtn.snp_right).offset(5)
             make.centerY.equalTo(self.titleBtn.snp_centerY)
         }
-        
-        
     }
 
 }
