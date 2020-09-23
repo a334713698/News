@@ -22,10 +22,10 @@ class BaseTabBarController: UITabBarController {
     }
     
     func initSubviews() {
-        let vcNames =  ["DJHomeViewController","DJFindViewController","DJMediaViewController","DJMeViewController"]
+        let vcNames =  ["DJHomeViewController","DJHotViewController","DJMediaViewController","DJMeViewController"]
         let imageNames = ["","","",""]
         let imageNames_selected = ["","","",""]
-        let titles = ["首页","发现","直播","我的"]
+        let titles = ["首页","热门","直播","我的"]
 
         var baseNavs = Array<BaseNavigationController>()
         for (i, vcName) in vcNames.enumerated() {
