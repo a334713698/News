@@ -23,8 +23,7 @@ class BaseTabBarController: UITabBarController {
     
     func initSubviews() {
         let vcNames =  ["DJHomeViewController","DJHotViewController","DJMediaViewController","DJMeViewController"]
-        let imageNames = ["","","",""]
-        let imageNames_selected = ["","","",""]
+        let imageNames = ["icon_tab_home","icon_tab_hot","icon_tab_live","icon_tab_me"]
         let titles = ["首页","热门","直播","我的"]
 
         var baseNavs = Array<BaseNavigationController>()
@@ -42,11 +41,16 @@ class BaseTabBarController: UITabBarController {
             let vc = cls.init()
             let nav = BaseNavigationController.init(rootViewController: vc)
             vc.title = titles[i]
+            
+            let image = Image(imageNames[i])?.dj_image(UIColor.gray)?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+            let selectedImage = Image(imageNames[i])?.dj_image(MAIN_COLOR)?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+            
             nav.tabBarItem = UITabBarItem(
-                title: titles[i],
-                image: Image(imageNames[i])?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal),
-                selectedImage: Image(imageNames_selected[i])?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+                title: nil,
+                image: image,
+                selectedImage: selectedImage
             )
+            nav.tabBarItem.imageInsets = UIEdgeInsets.init(top: 5, left: 0, bottom: 0, right: 0)
             baseNavs.append(nav)
         }
         self.setViewControllers(baseNavs, animated: true)

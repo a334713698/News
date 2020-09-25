@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7108C7D12514AD0C007D86D9 /* DJMediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7108C7D02514AD0C007D86D9 /* DJMediaTableViewCell.swift */; };
+		712A04EC251DE46900E15856 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712A04EB251DE46900E15856 /* UIImage+Color.swift */; };
 		713B438F251880D700C20CC6 /* UILabel+Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713B438E251880D700C20CC6 /* UILabel+Feature.swift */; };
 		713B4392251899A400C20CC6 /* DJMediaBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713B4391251899A400C20CC6 /* DJMediaBannerView.swift */; };
 		713B43962518A79700C20CC6 /* DJLiveTrailerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713B43952518A79700C20CC6 /* DJLiveTrailerView.swift */; };
@@ -50,6 +51,7 @@
 		2451895F7B88950D00063474 /* Pods_iOSSwiftProjectFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSSwiftProjectFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29E66051508C8E9AB47F873A /* Pods-iOSSwiftProjectFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftProjectFramework.debug.xcconfig"; path = "Target Support Files/Pods-iOSSwiftProjectFramework/Pods-iOSSwiftProjectFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		7108C7D02514AD0C007D86D9 /* DJMediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJMediaTableViewCell.swift; sourceTree = "<group>"; };
+		712A04EB251DE46900E15856 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		713B438E251880D700C20CC6 /* UILabel+Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Feature.swift"; sourceTree = "<group>"; };
 		713B4391251899A400C20CC6 /* DJMediaBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJMediaBannerView.swift; sourceTree = "<group>"; };
 		713B43952518A79700C20CC6 /* DJLiveTrailerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJLiveTrailerView.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			children = (
 				713CF8DD24DD264B00E25C83 /* UIButton+ImageTitleSpacing.swift */,
 				713B438E251880D700C20CC6 /* UILabel+Feature.swift */,
+				712A04EB251DE46900E15856 /* UIImage+Color.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				713B4392251899A400C20CC6 /* DJMediaBannerView.swift in Sources */,
 				71CDDF8F24F3B79400366B6D /* DJHomeViewController.swift in Sources */,
 				713CF8C324DD250A00E25C83 /* SceneDelegate.swift in Sources */,
+				712A04EC251DE46900E15856 /* UIImage+Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
